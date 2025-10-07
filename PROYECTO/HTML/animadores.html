@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Animadores - Anima Tu Fiesta</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    .animador-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 0.5rem;
+    }
+  </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+  <!-- Header -->
+  <header class="bg-primary text-white text-center py-4">
+    <div class="container">
+      <h1 class="mb-3">Anima Tu Fiesta</h1>
+      <div class="row justify-content-center">
+        <div class="col-md-4 mb-2">
+          <div class="dropdown">
+            <button class="btn btn-light dropdown-toggle w-100" type="button" data-bs-toggle="dropdown">
+              Menu
+            </button>
+            <ul class="dropdown-menu w-100 text-center">
+              <li><a class="dropdown-item" href="../index.html">Inicio</a></li>
+              <li><a class="dropdown-item" href="../HTML/login.html">Login</a></li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-grow-1">
+    <div class="container my-5">
+      <div class="text-center mb-4">
+        <h2 class="fw-bold">Nuestros Animadores</h2>
+      </div>
+      <div class="row" id="lista-animadores">
+        <!-- Animador Alegría -->
+        <div class="col-md-4 mb-4 animador" data-nombre="Animador Alegría">
+          <img src="../IMG/animadores.jpg" class="animador-img" alt="Animador Alegría" />
+          <h5 class="mt-2">Animador Alegría</h5>
+          <p>Especializado en fiestas infantiles y shows en vivo.</p>
+          <button class="btn btn-primary w-100 agregar-carrito">Agregar al carrito</button>
+        </div>
+
+        <!-- Bailarín Bruno -->
+        <div class="col-md-4 mb-4 animador" data-nombre="Bailarín Bruno">
+          <img src="../IMG/catering.jpg" class="animador-img" alt="Bailarín Bruno" />
+          <h5 class="mt-2">Bailarín Bruno</h5>
+          <p>Shows coreográficos, breakdance y animación urbana.</p>
+          <button class="btn btn-primary w-100 agregar-carrito">Agregar al carrito</button>
+        </div>
+
+        <!-- Clown Carlitos -->
+        <div class="col-md-4 mb-4 animador" data-nombre="Clown Carlitos">
+          <img src="../IMG/dj.png" class="animador-img" alt="Clown Carlitos" />
+          <h5 class="mt-2">Clown Carlitos</h5>
+          <p>Payaso profesional para niños, malabares y globoflexia.</p>
+          <button class="btn btn-primary w-100 agregar-carrito">Agregar al carrito</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-primary text-white text-center py-4 mt-auto">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <h5>Contacto</h5>
+          <p>Email: animatufiesta8@gmail.com<br />Tel: +54 11 5922 9324</p>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h5>Redes Sociales</h5>
+          <a href="https://www.facebook.com/profile.php?id=61578214285733&sk=about" class="text-white me-2">Facebook</a>
+          <a href="https://www.instagram.com/animatufiesta/" class="text-white me-2">Instagram</a>
+          <a href="https://www.tiktok.com/@animatufiesta8?lang=es" class="text-white">TikTok</a>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h5>Legal</h5>
+          <a href="./HTML/politica_privacidad.html" class="text-white d-block">Política de privacidad</a>
+          <a href="./HTML/terminos_condiciones.html" class="text-white d-block">Términos y condiciones</a>
+        </div>
+      </div>
+      <hr class="border-light" />
+      <p class="mb-0">&copy; 2025 Anima Tu Fiesta. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.agregar-carrito').forEach(boton => {
+      boton.addEventListener('click', () => {
+        const animador = boton.closest('.animador');
+        const nombre = animador.getAttribute('data-nombre');
+
+        // Obtener carrito actual o inicializar vacío
+        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+        // Evitar duplicados
+        if (!carrito.includes(nombre)) {
+          carrito.push(nombre);
+          localStorage.setItem('carrito', JSON.stringify(carrito));
+        }
+
+        // Redirigir a carrito (ajustar ruta si es necesario)
+        window.location.href = 'carrito.html';
+      });
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+terminar las tablas(CRUD[altas,bajas,eliminar,legible]
+
+auth
+ - login
+	- formulario
+	- backend 
+        - que se mantenga la sesion abierta
+ - registro
+        - formulario
+        - backend
+------------------------------
+carrito
+	- listar productos
+        - quitar productos 
+        - agregar productos
+        - conectar con la bd
+------------------------------
+pago
+        - investigar el api
+	- implementar la api
+------------------------------
+roles
+	- vista para usuarios y trabajadores(distintas)
+		- perfil de trabajadores
+			- un banner
+			- foto de perfil
+			- desc. detallada
+			- ubicacion
+			- seccion para videos y fotos
+		- tarjeta de trabajadores
+			- descripcion breve
+			- oficio
+ 			- 3 fotos en carrusel (para capatr atencion mas facil)
+------------------------------
+permisos
+	- cuales partes del sitio web puede llegar a ver el ususario y cuales no
+------------------------------
+calificacion
+	- medidor de estrellas
+	- comentario
+------------------------------
+servicios
+	- agregar/quitar/modificar servicio y descripcion
