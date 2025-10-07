@@ -12,6 +12,13 @@
       object-fit: cover;
       border-radius: 0.5rem;
     }
+    .animador-card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .animador-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
   </style>
 </head>
 <body class="d-flex flex-column min-vh-100">
@@ -29,7 +36,6 @@
             <ul class="dropdown-menu w-100 text-center">
               <li><a class="dropdown-item" href="../index.html">Inicio</a></li>
               <li><a class="dropdown-item" href="../HTML/login.html">Login</a></li>
-              
             </ul>
           </div>
         </div>
@@ -42,30 +48,71 @@
     <div class="container my-5">
       <div class="text-center mb-4">
         <h2 class="fw-bold">Nuestros Animadores</h2>
+        <p class="text-muted">Elegí al animador ideal para tu evento y reservá la fecha.</p>
       </div>
+
       <div class="row" id="lista-animadores">
         <!-- Animador Alegría -->
-        <div class="col-md-4 mb-4 animador" data-nombre="Animador Alegría">
-          <img src="../IMG/animadores.jpg" class="animador-img" alt="Animador Alegría" />
-          <h5 class="mt-2">Animador Alegría</h5>
-          <p>Especializado en fiestas infantiles y shows en vivo.</p>
-          <button class="btn btn-primary w-100 agregar-carrito">Agregar al carrito</button>
+        <div class="col-md-4 mb-4">
+          <div class="card animador-card p-3 h-100 animador" data-nombre="Animador Alegría">
+            <img src="../IMG/animadores.jpg" class="animador-img mb-3" alt="Animador Alegría" />
+            <h5 class="fw-bold text-primary">Animador Alegría</h5>
+            <ul class="list-unstyled mb-3">
+              <li><strong>Edad:</strong> 28 años</li>
+              <li><strong>Servicio:</strong> Fiestas infantiles y shows en vivo</li>
+            </ul>
+            <div class="mb-3">
+              <h6 class="fw-semibold">Descripción:</h6>
+              <p>Divertido, carismático y con experiencia en animación para niños. Garantiza risas, juegos y momentos inolvidables.</p>
+            </div>
+            <div class="mb-3">
+              <label for="fecha-alegria" class="form-label fw-semibold">Seleccionar fecha:</label>
+              <input type="date" class="form-control" id="fecha-alegria">
+            </div>
+            <button class="btn btn-primary w-100 agregar-carrito">Agregar al carrito</button>
+          </div>
         </div>
 
         <!-- Bailarín Bruno -->
-        <div class="col-md-4 mb-4 animador" data-nombre="Bailarín Bruno">
-          <img src="../IMG/catering.jpg" class="animador-img" alt="Bailarín Bruno" />
-          <h5 class="mt-2">Bailarín Bruno</h5>
-          <p>Shows coreográficos, breakdance y animación urbana.</p>
-          <button class="btn btn-primary w-100 agregar-carrito">Agregar al carrito</button>
+        <div class="col-md-4 mb-4">
+          <div class="card animador-card p-3 h-100 animador" data-nombre="Bailarín Bruno">
+            <img src="../IMG/catering.jpg" class="animador-img mb-3" alt="Bailarín Bruno" />
+            <h5 class="fw-bold text-primary">Bailarín Bruno</h5>
+            <ul class="list-unstyled mb-3">
+              <li><strong>Edad:</strong> 25 años</li>
+              <li><strong>Servicio:</strong> Shows coreográficos y animación urbana</li>
+            </ul>
+            <div class="mb-3">
+              <h6 class="fw-semibold">Descripción:</h6>
+              <p>Especialista en ritmos modernos, breakdance y reggaetón. Ideal para eventos juveniles o fiestas con mucha energía.</p>
+            </div>
+            <div class="mb-3">
+              <label for="fecha-bruno" class="form-label fw-semibold">Seleccionar fecha:</label>
+              <input type="date" class="form-control" id="fecha-bruno">
+            </div>
+            <button class="btn btn-primary w-100 agregar-carrito">Agregar al carrito</button>
+          </div>
         </div>
 
         <!-- Clown Carlitos -->
-        <div class="col-md-4 mb-4 animador" data-nombre="Clown Carlitos">
-          <img src="../IMG/dj.png" class="animador-img" alt="Clown Carlitos" />
-          <h5 class="mt-2">Clown Carlitos</h5>
-          <p>Payaso profesional para niños, malabares y globoflexia.</p>
-          <button class="btn btn-primary w-100 agregar-carrito">Agregar al carrito</button>
+        <div class="col-md-4 mb-4">
+          <div class="card animador-card p-3 h-100 animador" data-nombre="Clown Carlitos">
+            <img src="../IMG/dj.png" class="animador-img mb-3" alt="Clown Carlitos" />
+            <h5 class="fw-bold text-primary">Clown Carlitos</h5>
+            <ul class="list-unstyled mb-3">
+              <li><strong>Edad:</strong> 32 años</li>
+              <li><strong>Servicio:</strong> Payaso profesional y globoflexia</li>
+            </ul>
+            <div class="mb-3">
+              <h6 class="fw-semibold">Descripción:</h6>
+              <p>Payaso con más de 10 años de experiencia en shows familiares. Experto en magia, malabares y creación de globos divertidos.</p>
+            </div>
+            <div class="mb-3">
+              <label for="fecha-carlitos" class="form-label fw-semibold">Seleccionar fecha:</label>
+              <input type="date" class="form-control" id="fecha-carlitos">
+            </div>
+            <button class="btn btn-primary w-100 agregar-carrito">Agregar al carrito</button>
+          </div>
         </div>
       </div>
     </div>
@@ -102,16 +149,13 @@
         const animador = boton.closest('.animador');
         const nombre = animador.getAttribute('data-nombre');
 
-        // Obtener carrito actual o inicializar vacío
         let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
-        // Evitar duplicados
         if (!carrito.includes(nombre)) {
           carrito.push(nombre);
           localStorage.setItem('carrito', JSON.stringify(carrito));
         }
 
-        // Redirigir a carrito (ajustar ruta si es necesario)
         window.location.href = 'carrito.html';
       });
     });
