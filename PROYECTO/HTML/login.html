@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login - Anima Tu Fiesta</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #f4653a, #ff9a6e); /* Fondo degradado en diagonal */
+      min-height: 100vh;  /* Altura mínima que cubre toda la pantalla */
+      display: flex;      /* Activa flexbox para organización */
+      flex-direction: column; /* Dirección vertical (de arriba hacia abajo) */
+    }
+
+    .login-container {
+      background: #fff;                /* Fondo blanco para contraste */
+      border-radius: 1rem;             /* Bordes redondeados para suavidad */
+      padding: 2.5rem;                 /* Espacio interno cómodo */
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Sombra para profundidad */
+      width: 100%;                     /* Toma todo el ancho disponible */
+      max-width: 400px;                /* Limita el ancho para estética */
+      margin: 50px auto;               /* Centrado horizontal y margen superior */
+    }
+
+    .login-title {
+      font-weight: bold;              /* Título en negrita */
+      margin-bottom: 1.5rem;          /* Espacio inferior */
+      color: #f4623a;                 /* Color del branding */
+    }
+
+    .form-control:focus {
+      border-color: #f4623a;          /* Borde naranja al enfocar input */
+      box-shadow: 0 0 0 0.2rem rgba(244, 98, 58, 0.25); /* Sombra suave */
+    }
+
+    .btn-login {
+      background-color: #f4623a;      /* Fondo naranja en botón */
+      color: #fff;                    /* Texto blanco */
+    }
+
+    .btn-login:hover {
+      background-color: #e04c25;      /* Más oscuro al pasar el mouse */
+    }
+
+    footer {
+      margin-top: auto;               /* Mantiene el footer en el fondo */
+    }
+  </style>
+</head>
+<body class="d-flex flex-column">
+
+  <!-- Header con título y menú -->
+  <header class="bg-primary text-white text-center py-4">
+    <div class="container">
+      <h1 class="mb-3">Anima Tu Fiesta</h1>
+      <div class="row justify-content-center">
+        <div class="col-md-4 mb-2">
+          <div class="dropdown">
+            <button class="btn btn-light dropdown-toggle w-100" type="button" data-bs-toggle="dropdown">
+              Menu
+            </button>
+            <ul class="dropdown-menu w-100 text-center">
+              <li><a class="dropdown-item" href="../index.html">Inicio</a></li>
+              <li><a class="dropdown-item" href="carrito.html">Carrito</a></li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Formulario de Login -->
+  <main class="flex-grow-1">
+    <div class="login-container text-center">
+      <h2 class="login-title">Iniciar Sesión</h2>
+      <form action="../PHP/login.php" method="POST"> <!-- Envía a PHP -->
+        <div class="campo mb-3 text-start">
+          <label for="usuario" class="form-label">Usuario</label>
+          <input type="text" class="form-control" id="usuario" name="usuario" required /> <!-- Campo correo -->
+        </div>
+        <div class="campo mb-3 text-start">
+          <label for="contrasena" class="form-label">Contraseña</label>
+          <input type="text" class="form-control" id="contrasena" name="contrasena" required /> <!-- Campo teléfono -->
+        </div>
+        <button type="submit" name="enviar" class="btn btn-login w-100 mt-3">Entrar</button> <!-- Botón -->
+      </form>
+      <p class="mt-4">¿No tienes cuenta? <a href="./registro.html">Regístrate</a></p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-primary text-white text-center py-4 mt-auto">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <h5>Contacto</h5>
+          <p>Email: animatufiesta8@gmail.com<br>Tel: +54 11 5922 9324</p>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h5>Redes Sociales</h5>
+          <a href="https://www.facebook.com/profile.php?id=61578214285733&sk=about" class="text-white me-2">Facebook</a>
+          <a href="https://www.instagram.com/animatufiesta/" class="text-white me-2">Instagram</a>
+          <a href="https://www.tiktok.com/@animatufiesta8?lang=es" class="text-white">TikTok</a>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h5>Legal</h5>
+          <a href="politica_privacidad.html"  class="text-white d-block">Política de privacidad</a>
+          <a href="terminos_condiciones.html" class="text-white d-block">Términos y condiciones</a>
+        </div>
+      </div>
+      <hr class="border-light" />
+      <p class="mb-0">&copy; 2025 Anima Tu Fiesta. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
