@@ -1,33 +1,31 @@
 <?php
-if($_POST['enviar']) {
+include('conexion.php');
+
+if($_POST) {
 session_start();
-	$usuario = $_POST['usuario'];
+	$nombre = $_POST['nombre'];
 	$contrasena = $_POST['contrasena'];
+
+	$query = mysqli_query($conexion, "SELECT * FROM usuario WHERE nombre = '$nombre' AND contrasena = '$contrasena'");
 	
-	$query = mysql_query("SELECT * FROM usuarios WHERE usuario = '$usuario' AND contrasena = '$contrasena'");
-	
-	$contar = mysql_num_rows($query);
-	
+	$contar = mysqli_num_rows($query);
 	if ($contar != 0) {
-	
-		while($row=mysql_fetch_array($query)) {
-		
-			if($usuario == $row['usuario'] && $contrasena == $row['contrasena']) 
+		while($row=mysqli_fetch_array($query)) {
+			echo $row;
+			if($nombre == $row['nombre'] && $contrasena == $row['contrasena']) 
 			
 			{
 			
-				$_SESSION['usuario'] = $usuario;
+				$_SESSION['nombre'] = $nombre;
 				
 				$_SESSION['id'] = $row['id'];
 			
-    echo "<script>
-    alert('Se registró correctamente');
-    window.location.href = '../index.html';
-</script>";
+				echo "<script>
+				window.location.href = '../index.html';
+			</script>";
 			}
-			
 		} 
 		
-	} else { echo "El nombre de usuario y/o contrasena no coinciden"; }
+	} else { echo "El nombre de nombre y/o contrasena no coinciden"; }
 }
 ?>
