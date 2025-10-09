@@ -28,7 +28,7 @@ if ($error == "") {
 
     echo "<script>
     alert('Se registró correctamente');
-    window.location.href = '../index.html';
+    window.location.href = '../index.php';
 </script>";
 }
 ?>
