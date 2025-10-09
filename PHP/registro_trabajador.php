@@ -75,15 +75,16 @@
   <!-- Formulario de Login -->
   <main class="flex-grow-1">
     <div class="login-container text-center">
-      <h2 class="login-title">Iniciar Sesión</h2>
-      <form action="../PHP/login.php" method="POST"> <!-- Envía a PHP -->
+      <h2 class="login-title">Registrarse como trabajador</h2>
+      <h6>Seguira teniendo acceso a las funciones de cliente</h6>
+      <form action="../PHP/registrar_trabajador.php" method="POST" class="mt-4"> <!-- Envía a PHP -->
         <div class="campo mb-3 text-start">
-          <label for="nombre" class="form-label">Nombre</label>
-          <input type="text" class="form-control" id="nombre" name="nombre" required /> <!-- Campo correo -->
+          <label for="nombre_artistico" class="form-label">Nombre artistico</label>
+          <input type="text" class="form-control" id="nombre_artistico" name="nombre_artistico" required /> <!-- Campo correo -->
         </div>
         <div class="campo mb-3 text-start">
-          <label for="contrasena" class="form-label">Contraseña</label>
-          <input type="text" class="form-control" id="contrasena" name="contrasena" required /> <!-- Campo teléfono -->
+          <label for="oficio" class="form-label">Oficio</label>
+          <input type="text" class="form-control" id="oficio" name="oficio" required /> <!-- Campo teléfono -->
         </div>
         <button type="submit" name="enviar" class="btn btn-login w-100 mt-3">Entrar</button> <!-- Botón -->
       </form>

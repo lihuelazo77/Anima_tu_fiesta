@@ -21,7 +21,7 @@ session_start();
 				$_SESSION['id'] = $row['id'];
 			
 				echo "<script>
-				window.location.href = '../index.html';
+				window.location.href = '../index.php';
 			</script>";
 			}
 		} 
