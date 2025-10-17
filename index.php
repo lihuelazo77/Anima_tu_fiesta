@@ -106,7 +106,7 @@
             Menu
           </button>
           <ul class="dropdown-menu text-center">
-            <li><a class="dropdown-item" href="">Inicio</a></li>
+            <li><a class="dropdown-item" href="./index.php">Inicio</a></li>
             <li><a class="dropdown-item" href="./HTML/carrito.html">Carrito</a></li>
           </ul>
         </div>
