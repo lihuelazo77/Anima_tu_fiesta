@@ -60,7 +60,7 @@
 
         <!-- Icono centrado -->
         <div class="col-4 d-flex justify-content-center">
-          <img src="./IMG/Icono_header_ATF.png" class="img-fluid" style="max-width: 100px;" alt="Icono">
+          <img src="./IMG/Icono_header_ATF.png" class="img-fluid" style="max-width: 70px;" alt="Icono">
         </div>
 
         <!-- Menú y perfil a la derecha -->

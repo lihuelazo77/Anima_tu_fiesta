@@ -10,6 +10,7 @@ DROP TABLE IF EXISTS carrito;
 DROP TABLE IF EXISTS trabajador;
 DROP TABLE IF EXISTS servicios;
 DROP TABLE IF EXISTS usuario;
+DROP TABLE IF EXISTS eventos;
 
 -- Crear tabla 'usuario'
 CREATE TABLE usuario (
@@ -22,81 +23,90 @@ CREATE TABLE usuario (
     contrasena VARCHAR(255) NOT NULL 
 );
 
--- Crear tabla 'trabajador' (ID primero)
+-- Crear tabla 'trabajador'
 CREATE TABLE trabajador (
-    id_u INT NOT NULL,
+    id_usuario INT NOT NULL,
     oficio VARCHAR(20) NOT NULL,
-    PRIMARY KEY (oficio, id_u)
+    nombre_artistico VARCHAR(20) NOT NULL,
+    PRIMARY KEY (oficio, id_usuario)
 );
 
 -- Crear tabla 'servicios'
 CREATE TABLE servicios (
-    nombre_s VARCHAR(20) PRIMARY KEY NOT NULL,
+    nombre_servicio VARCHAR(20) PRIMARY KEY NOT NULL,
     descripcion VARCHAR(100) NOT NULL
 );
 
--- Crear tabla 'carrito' (IDs primero)
+-- Crear tabla 'carrito'
 CREATE TABLE carrito (
-    id_u INT NOT NULL,
+    id_usuario INT NOT NULL,
     id_trabajador INT NOT NULL,
     oficio VARCHAR(20) NOT NULL,
     fecha DATE NOT NULL,
     direccion VARCHAR(50) NOT NULL,
-    PRIMARY KEY (id_u, oficio, id_trabajador, fecha)
+    PRIMARY KEY (id_usuario, oficio, id_trabajador, fecha)
 );
 
--- Crear tabla 'califica' (IDs primero)
+-- Crear tabla 'califica'
 CREATE TABLE califica (
-    id_u INT NOT NULL,
+    id_usuario INT NOT NULL,
     id_trabajador INT NOT NULL,
     oficio VARCHAR(20) NOT NULL,
     estrellas INT NOT NULL,
     reseña VARCHAR(100) NOT NULL,
-    PRIMARY KEY (id_u, oficio, id_trabajador)
+    PRIMARY KEY (id_usuario, oficio, id_trabajador)
 );
 
 -- Crear tabla 'ofrece'
 CREATE TABLE ofrece (
     id_trabajador INT NOT NULL,
     oficio VARCHAR(20) NOT NULL,
-    nombre_s VARCHAR(20) NOT NULL,
+    nombre_servicio VARCHAR(20) NOT NULL,
     precio INT NOT NULL,
-    PRIMARY KEY (id_trabajador, oficio, nombre_s)
+    PRIMARY KEY (id_trabajador, oficio, nombre_servicio)
+);
+
+-- Crear tabla 'eventos'
+CREATE TABLE eventos (
+    id_evento INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    nombre_evento VARCHAR(50) NOT NULL,
+    fecha_evento DATE NOT NULL,
+    descripcion_evento VARCHAR(200) NOT NULL
 );
 
 -- Agregar claves foráneas
 
 -- trabajador -> usuario
 ALTER TABLE trabajador
-    ADD CONSTRAINT trabajador_id_u_usuario_id
-    FOREIGN KEY (id_u) REFERENCES usuario(id);
+    ADD CONSTRAINT trabajador_id_usuario_usuario_id
+    FOREIGN KEY (id_usuario) REFERENCES usuario(id);
 
 -- carrito -> usuario
 ALTER TABLE carrito
-    ADD CONSTRAINT carrito_id_u_usuario_id
-    FOREIGN KEY (id_u) REFERENCES usuario(id);
+    ADD CONSTRAINT carrito_id_usuario_usuario_id
+    FOREIGN KEY (id_usuario) REFERENCES usuario(id);
 
--- carrito -> trabajador (clave compuesta)
+-- carrito -> trabajador
 ALTER TABLE carrito
     ADD CONSTRAINT carrito_trabajador_fk
-    FOREIGN KEY (oficio, id_trabajador) REFERENCES trabajador(oficio, id_u);
+    FOREIGN KEY (oficio, id_trabajador) REFERENCES trabajador(oficio, id_usuario);
 
 -- califica -> usuario
 ALTER TABLE califica
-    ADD CONSTRAINT califica_id_u_usuario_id
-    FOREIGN KEY (id_u) REFERENCES usuario(id);
+    ADD CONSTRAINT califica_id_usuario_usuario_id
+    FOREIGN KEY (id_usuario) REFERENCES usuario(id);
 
--- califica -> trabajador (clave compuesta)
+-- califica -> trabajador
 ALTER TABLE califica
     ADD CONSTRAINT califica_trabajador_fk
-    FOREIGN KEY (oficio, id_trabajador) REFERENCES trabajador(oficio, id_u);
+    FOREIGN KEY (oficio, id_trabajador) REFERENCES trabajador(oficio, id_usuario);
 
--- ofrece -> trabajador (clave compuesta)
+-- ofrece -> trabajador
 ALTER TABLE ofrece
     ADD CONSTRAINT ofrece_trabajador_fk
-    FOREIGN KEY (oficio, id_trabajador) REFERENCES trabajador(oficio, id_u);
+    FOREIGN KEY (oficio, id_trabajador) REFERENCES trabajador(oficio, id_usuario);
 
 -- ofrece -> servicios
 ALTER TABLE ofrece
-    ADD CONSTRAINT ofrece_nombre_s_servicios_nombre_s
-    FOREIGN KEY (nombre_s) REFERENCES servicios(nombre_s);
+    ADD CONSTRAINT ofrece_nombre_servicio_servicios_nombre_servicio
+    FOREIGN KEY (nombre_servicio) REFERENCES servicios(nombre_servicio);
