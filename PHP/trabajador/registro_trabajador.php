@@ -1,12 +1,14 @@
 <?php
-  include('conexion.php');
+session_start();
+include('../conexion/conexion.php');
 if (isset($_POST['enviar'])) {
-  // $id=$_SESSION["id"];
+  $id=$_SESSION["id"];
   $oficio=$_POST["oficio"];
   $nombre_artistico=$_POST["nombre_artistico"];
-    $sql = "INSERT INTO trabajador VALUES (1, '$oficio', '$nombre_artistico')";
+    $sql = "INSERT INTO trabajador VALUES ('$id', '$oficio', '$nombre_artistico')";
     mysqli_query($conexion, $sql);
     mysqli_close($conexion);
+    echo "PIÑATAAAAAA";
 }
 ?>
 

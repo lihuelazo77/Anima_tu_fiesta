@@ -1,5 +1,5 @@
 <?php
-include('conexion.php');
+include('../conexion/conexion.php');
 
 if($_POST) {
 session_start();
@@ -21,7 +21,7 @@ session_start();
 				$_SESSION['id'] = $row['id'];
 			
 				echo "<script>
-				window.location.href = '../index.php';
+				window.location.href = '../../index.php';
 			</script>";
 			}
 		} 

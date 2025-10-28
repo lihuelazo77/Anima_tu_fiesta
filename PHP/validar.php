@@ -182,8 +182,7 @@ function validar_contrasena($contrasena,$error){
     return $error;
 }
 function validar_confirmar($confirmar,$contrasena,$error){
-    if ($contrasena !== $confirmar) {
-    alert("Las contraseñas no coinciden.");
+    if ($contrasena !== $confirmar) {   
     $error=$error. "Debe escribir su contraseña de vuelta para confirmarla.<br>";
   }
     return $error;

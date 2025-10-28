@@ -1,6 +1,6 @@
 <?php
-include('conexion.php');
-include('validar.php');
+include('../conexion/conexion.php');
+include('../validar.php');
 
 $nombre = trim($_POST["nombre"]);
 $apellido = trim($_POST["apellido"]);
@@ -28,7 +28,7 @@ if ($error == "") {
 
     echo "<script>
     alert('Se registró correctamente');
-    window.location.href = '../index.php';
+    window.location.href = '../../HTML/cliente/login.html';
 </script>";
 }
 ?>
