@@ -25,28 +25,41 @@
   </style>
 </head>
 <body class="d-flex flex-column min-vh-100">
+  <!-- Header con icono en el medio y texto a la izquierda -->
+  <header class="bg-primary text-white py-2 sticky-top">
+    <div class="container">
+      <div class="row align-items-center text-center text-md-start">
+        <!-- Título a la izquierda -->
+        <div class="col-4 d-flex justify-content-start align-items-center">
+          <h1 class="mb-0 fw-bold">Anima Tu Fiesta</h1>
+        </div>
 
-<!-- Header -->
-<header class="bg-primary text-white text-center py-4">
-  <div class="container">
-    <h1 class="mb-3">Politicas de privacidad</h1>
-    <div class="row justify-content-center">
-      <div class="col-md-4 mb-2">
-        <div class="dropdown">
-          <button class="btn btn-light dropdown-toggle w-100" type="button" data-bs-toggle="dropdown">
-            Menu
-          </button>
-          <ul class="dropdown-menu w-100 text-center">
-            <li><a class="dropdown-item" href="../index.php">Inicio</a></li>
-            <li><a class="dropdown-item" href="../HTML/login.html">Login</a></li>
-            <li><a class="dropdown-item" href="#">Carrito</a></li>
-          </ul>
+        <!-- Icono centrado -->
+        <div class="col-4 d-flex justify-content-center">
+          <img src="../../IMG/Icono_header_ATF.png" class="img-fluid" style="max-width: 100px;" alt="Icono">
+        </div>
+
+        <!-- Menú y perfil a la derecha -->
+        <div class="col-4 d-flex justify-content-end align-items-center gap-2">
+          <div class="dropdown">
+            <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
+              Menú
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end text-center">
+              <li><a class="dropdown-item" href="./index.php">Inicio</a></li>
+              <li><a class="dropdown-item" href="./HTML/eventos/carrito/carrito.html">Carrito</a></li>
+            </ul>
+          </div>
+
+          <!-- Botón circular de perfil -->
+          <a href="./HTML/cliente/perfil_cliente.html" class="d-inline-block rounded-circle overflow-hidden border border-light" style="width: 45px; height: 45px;">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="img-fluid" alt="Perfil">
+          </a>
         </div>
       </div>
-      </div>
     </div>
-  </div>
-</header>
+  </header>
+
 
   <!-- Contenido principal -->
   <main class="flex-grow-1 my-5">

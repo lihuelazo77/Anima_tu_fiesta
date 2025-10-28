@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -71,14 +75,34 @@
             </button>
             <ul class="dropdown-menu dropdown-menu-end text-center">
               <li><a class="dropdown-item" href="./index.php">Inicio</a></li>
-              <li><a class="dropdown-item" href="./HTML/carrito.html">Carrito</a></li>
+              <li><a class="dropdown-item" href="./HTML/eventos/carrito/carrito.html">Carrito</a></li>
+              <li><a class="dropdown-item" href="./HTML/eventos/carrito/carrito.html">Registrate como trabajador</a></li>
             </ul>
           </div>
 
           <!-- Botón circular de perfil -->
-          <a href="./HTML/perfil_cliente.html" class="d-inline-block rounded-circle overflow-hidden border border-light" style="width: 45px; height: 45px;">
-            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="img-fluid" alt="Perfil">
-          </a>
+          <div class="dropdown d-flex">
+            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
+            <a href="./HTML/cliente/perfil_cliente.html" class="d-inline-block rounded-circle overflow-hidden border border-light" style="width: 45px; height: 45px;">
+              <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="img-fluid" alt="Perfil">
+          </a>  
+        </button>
+        <?php
+        if (isset($_SESSION['id'])) {
+        ?>  <p class="usuario ">Hola, <?php echo $_SESSION['nombre']; ?></p><?php
+}
+?>
+            <ul class="dropdown-menu dropdown-menu-end text-center">
+              <li><a class="dropdown-item" href="./index.php">Ver perfil</a></li>
+              <li><a class="dropdown-item" href="./HTML/eventos/carrito/carrito.html">Iniciar sesion</a></li>
+              <li><a class="dropdown-item text-danger" href="./HTML/eventos/carrito/carrito.html">Cerrar sesion</a></li>
+
+            </ul>
+          </div>
+  </img>
+          
+          
+
         </div>
       </div>
     </div>
@@ -93,7 +117,7 @@
       <div class="row g-4">
         <!-- Imagen 1 -->
         <div class="col-sm-6 col-md-4">
-          <a href="./HTML/animadores.html">
+          <a href="./HTML/categorias/animadores.html">
             <div class="galeria-item">
               <img src="IMG/animadores/animador.jpg" class="galeria-img" alt="Animadores">
               <div class="overlay-text">Animadores</div>
@@ -102,7 +126,7 @@
         </div>
         <!-- Imagen 2 -->
         <div class="col-sm-6 col-md-4">
-          <a href="./HTML/catering.html">
+          <a href="./HTML/categorias/catering.html">
             <div class="galeria-item">
               <img src="IMG/catering/catering.jpg" class="galeria-img" alt="Catering">
               <div class="overlay-text">Catering</div>
@@ -111,7 +135,7 @@
         </div>
         <!-- Imagen 3 -->
         <div class="col-sm-6 col-md-4">
-          <a href="./HTML/decoracion.html">
+          <a href="./HTML/categorias/decoracion.html">
             <div class="galeria-item">
               <img src="IMG/decoracion/decoracion.jpg" class="galeria-img" alt="Decoración">
               <div class="overlay-text">Decoración</div>
@@ -120,7 +144,7 @@
         </div>
         <!-- Imagen 4 -->
         <div class="col-sm-6 col-md-4">
-          <a href="./HTML/fotografo.html">
+          <a href="./HTML/categorias/fotografo.html">
             <div class="galeria-item">
               <img src="IMG/fotografia/fotografo.jpg" class="galeria-img" alt="Fotógrafo">
               <div class="overlay-text">Fotógrafo</div>
@@ -129,7 +153,7 @@
         </div>
         <!-- Imagen 5 -->
         <div class="col-sm-6 col-md-4">
-          <a href="./HTML/dj.html">
+          <a href="./HTML/categorias/dj.html">
             <div class="galeria-item">
               <img src="IMG/dj/dj1200x800.jpg" class="galeria-img" alt="DJ">
               <div class="overlay-text">DJ</div>
@@ -138,7 +162,7 @@
         </div>
         <!-- Imagen 6 -->
         <div class="col-sm-6 col-md-4">
-          <a href="./HTML/ambientes.html">
+          <a href="./HTML/categorias/ambientes.html">
             <div class="galeria-item">
               <img src="IMG/ambientes/ambiente.png" class="galeria-img" alt="Ambientes">
               <div class="overlay-text">Ambientes</div>
@@ -165,8 +189,8 @@
         </div>
         <div class="col-md-4 mb-3">
           <h5>Legal</h5>
-          <a href="./HTML/politica_privacidad.html" class="text-white d-block">Política de privacidad</a>
-          <a href="./HTML/terminos_condiciones.html" class="text-white d-block">Términos y condiciones</a>
+          <a href="./HTML/politica_privacidad/politica_privacidad.html" class="text-white d-block">Política de privacidad</a>
+          <a href="./HTML/politica_privacidad/terminos_condiciones.html" class="text-white d-block">Términos y condiciones</a>
         </div>
       </div>
       <hr class="border-light" />
