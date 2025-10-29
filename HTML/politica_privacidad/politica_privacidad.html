@@ -25,6 +25,7 @@
   </style>
 </head>
 <body class="d-flex flex-column min-vh-100">
+
   <!-- Header con icono en el medio y texto a la izquierda -->
   <header class="bg-primary text-white py-2 sticky-top">
     <div class="container">
@@ -46,15 +47,30 @@
               Menú
             </button>
             <ul class="dropdown-menu dropdown-menu-end text-center">
-              <li><a class="dropdown-item" href="./index.php">Inicio</a></li>
-              <li><a class="dropdown-item" href="./HTML/eventos/carrito/carrito.html">Carrito</a></li>
+              <li><a class="dropdown-item" href="../../index.php">Inicio</a></li>
+              <li><a class="dropdown-item" href="../../HTML/eventos/carrito/carrito.html">Carrito</a></li>
+              <li><a class="dropdown-item" href="../../PHP/trabajador/formulario_trabajador.php">Registrate como trabajador</a></li>
             </ul>
           </div>
 
           <!-- Botón circular de perfil -->
-          <a href="./HTML/cliente/perfil_cliente.html" class="d-inline-block rounded-circle overflow-hidden border border-light" style="width: 45px; height: 45px;">
-            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="img-fluid" alt="Perfil">
-          </a>
+          <div class="dropdown d-flex">
+            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
+            <a href="./HTML/cliente/perfil_cliente.html" class="d-inline-block rounded-circle overflow-hidden border border-light" style="width: 45px; height: 45px;">
+              <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="img-fluid" alt="Perfil">
+          </a>  
+        </button>
+        <?php
+        if (isset($_SESSION['id'])) {
+        ?>  <p class="usuario ">Hola, <?php echo $_SESSION['nombre']; ?></p><?php
+}
+?>
+            <ul class="dropdown-menu dropdown-menu-end text-center">
+              <li><a class="dropdown-item" href="../../HTML/cliente/perfil_cliente.html">Ver perfil</a></li>
+              <li><a class="dropdown-item" href="../../HTML/cliente/login.html">Iniciar sesion</a></li>
+              <li><a class="dropdown-item text-danger" href="#">Cerrar sesion</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -125,8 +141,8 @@
         </div>
         <div class="col-md-4 mb-3">
           <h5>Legal</h5>
-          <a href="../HTML/politica_privacidad.html" class="text-white d-block">Política de privacidad</a>
-          <a href="../HTML/terminos_condiciones.html" class="text-white d-block">Términos y condiciones</a>
+          <a href="#" class="text-white d-block">Política de privacidad</a>
+          <a href="../../HTML/politica_privacidad/terminos_condiciones.html" class="text-white d-block">Términos y condiciones</a>
         </div>
       </div>
       <hr class="border-light" />

@@ -3,9 +3,10 @@ session_start();
 include('../conexion/conexion.php');
 if (isset($_POST['enviar'])) {
   $id=$_SESSION["id"];
-  $oficio=$_POST["oficio"];
   $nombre_artistico=$_POST["nombre_artistico"];
-    $sql = "INSERT INTO trabajador VALUES ('$id', '$oficio', '$nombre_artistico')";
+  $oficio=$_POST["oficio"];
+  $ciudad=$_POST["ciudad"];
+    $sql = "INSERT INTO trabajador VALUES ('$id', '$nombre_artistico', '$oficio', '$ciudad')";
     mysqli_query($conexion, $sql);
     mysqli_close($conexion);
     echo "PIÑATAAAAAA";
@@ -61,24 +62,91 @@ if (isset($_POST['enviar'])) {
     footer {
       margin-top: auto;               /* Mantiene el footer en el fondo */
     }
+    /* === Estilos del botón circular de perfil === */
+    .perfil-btn {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #ffffff33;
+      transition: transform 0.2s ease, background-color 0.3s ease;
+    }
+
+    .perfil-btn:hover {
+      transform: scale(1.05);
+      background-color: #ffffff55;
+    }
+
+    .perfil-btn img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Ajuste del header */
+    .header-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .menu-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
   </style>
 </head>
 <body class="d-flex flex-column">
 
-  <!-- Header con título y menú -->
-  <header class="bg-primary text-white text-center py-4">
+<!-- Header con icono en el medio y texto a la izquierda -->
+  <header class="bg-primary text-white py-2 sticky-top">
     <div class="container">
-      <h1 class="mb-3">Anima Tu Fiesta</h1>
-      <div class="row justify-content-center">
-        <div class="col-md-4 mb-2">
+      <div class="row align-items-center text-center text-md-start">
+        <!-- Título a la izquierda -->
+        <div class="col-4 d-flex justify-content-start align-items-center">
+          <h1 class="mb-0 fw-bold">Anima Tu Fiesta</h1>
+        </div>
+
+        <!-- Icono centrado -->
+        <div class="col-4 d-flex justify-content-center">
+          <img src="../../IMG/Icono_header_ATF.png" class="img-fluid" style="max-width: 100px;" alt="Icono">
+        </div>
+
+        <!-- Menú y perfil a la derecha -->
+        <div class="col-4 d-flex justify-content-end align-items-center gap-2">
           <div class="dropdown">
-            <button class="btn btn-light dropdown-toggle w-100" type="button" data-bs-toggle="dropdown">
-              Menu
+            <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
+              Menú
             </button>
-            <ul class="dropdown-menu w-100 text-center">
-              <li><a class="dropdown-item" href="../index.php">Inicio</a></li>
-              <li><a class="dropdown-item" href="carrito.html">Carrito</a></li>
-              
+            <ul class="dropdown-menu dropdown-menu-end text-center">
+              <li><a class="dropdown-item" href="../../index.php">Inicio</a></li>
+              <li><a class="dropdown-item" href="../../HTML/eventos/carrito/carrito.html">Carrito</a></li>
+              <li><a class="dropdown-item" href="../../PHP/trabajador/formulario_trabajador.php">Registrate como trabajador</a></li>
+            </ul>
+          </div>
+
+          <!-- Botón circular de perfil -->
+          <div class="dropdown d-flex">
+            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
+            <a href="./HTML/cliente/perfil_cliente.html" class="d-inline-block rounded-circle overflow-hidden border border-light" style="width: 45px; height: 45px;">
+              <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="img-fluid" alt="Perfil">
+          </a>  
+        </button>
+        <?php
+        if (isset($_SESSION['id'])) {
+        ?>  <p class="usuario ">Hola, <?php echo $_SESSION['nombre']; ?></p><?php
+}
+?>
+            <ul class="dropdown-menu dropdown-menu-end text-center">
+              <li><a class="dropdown-item" href="../../HTML/cliente/perfil_cliente.html">Ver perfil</a></li>
+              <li><a class="dropdown-item" href="../../HTML/cliente/login.html">Iniciar sesion</a></li>
+              <li><a class="dropdown-item text-danger" href="#">Cerrar sesion</a></li>
             </ul>
           </div>
         </div>
@@ -90,22 +158,23 @@ if (isset($_POST['enviar'])) {
   <main class="flex-grow-1">
     <div class="login-container text-center">
       <h2 class="login-title">Registrarse como trabajador</h2>
-      <h6>Seguira teniendo acceso a las funciones de cliente</h6>
-      <form action="" method="POST" class="mt-4"> <!-- Envía a PHP -->
+      <form action="../../PHP/cliente/login.php" method="POST"> <!-- Envía a PHP -->
+        <div class="campo mb-3 text-start">
+          <label for="nombre_artistico" class="form-label">Nombre artistico</label>
+          <input type="text" class="form-control" id="nombre_artistico" name="nombre_artistico" required /> <!-- Campo correo -->
+        </div>
         <div class="campo mb-3 text-start">
           <label for="oficio" class="form-label">Oficio</label>
           <input type="text" class="form-control" id="oficio" name="oficio" required /> <!-- Campo teléfono -->
         </div>
         <div class="campo mb-3 text-start">
-          <label for="nombre_artistico" class="form-label">Nombre artistico</label>
-          <input type="text" class="form-control" id="nombre_artistico" name="nombre_artistico" required /> <!-- Campo correo -->
+          <label for="ciudad" class="form-label">Ciudad</label>
+          <input type="text" class="form-control" id="ciudad" name="ciudad" required /> <!-- Campo teléfono -->
         </div>
         <button type="submit" name="enviar" class="btn btn-login w-100 mt-3">Entrar</button> <!-- Botón -->
       </form>
-      <p class="mt-4">¿No tienes cuenta? <a href="./registro_cliente.html">Regístrate</a></p>
     </div>
   </main>
-
 
   <!-- Footer -->
   <footer class="bg-primary text-white text-center py-4 mt-auto">
@@ -123,8 +192,8 @@ if (isset($_POST['enviar'])) {
         </div>
         <div class="col-md-4 mb-3">
           <h5>Legal</h5>
-          <a href="politica_privacidad.html"  class="text-white d-block">Política de privacidad</a>
-          <a href="terminos_condiciones.html" class="text-white d-block">Términos y condiciones</a>
+          <a href="../../HTML/politica_privacidad/politica_privacidad.html"  class="text-white d-block">Política de privacidad</a>
+          <a href="../../HTML/politica_privacidad/terminos_condiciones.html" class="text-white d-block">Términos y condiciones</a>
         </div>
       </div>
       <hr class="border-light" />

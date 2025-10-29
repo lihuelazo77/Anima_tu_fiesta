@@ -17,47 +17,58 @@
 
 <body class="d-flex flex-column min-vh-100">
 
-<!-- Header -->
-<header class="bg-primary text-white text-center py-4">
-  <div class="container">
-    <h1 class="mb-3">Animadores</h1>
-
-    <!-- Menús superior: uno a la izquierda y otro a la derecha -->
-    <div class="row align-items-center justify-content-center">
-      <!-- Menú izquierdo -->
-      <div class="col-6 col-md-3 text-start mb-3">
-        <div class="dropdown">
-          <button class="btn btn-light dropdown-toggle w-100" type="button" data-bs-toggle="dropdown">
-            Menú
-          </button>
-          <ul class="dropdown-menu w-100 text-center">
-            <li><a class="dropdown-item" href="../index.php">Inicio</a></li>
-            <li><a class="dropdown-item" href="../HTML/login.html">Login</a></li>
-
-          </ul>
+  <!-- Header con icono en el medio y texto a la izquierda -->
+  <header class="bg-primary text-white py-2 sticky-top">
+    <div class="container">
+      <div class="row align-items-center text-center text-md-start">
+        <!-- Título a la izquierda -->
+        <div class="col-4 d-flex justify-content-start align-items-center">
+          <h1 class="mb-0 fw-bold">Anima Tu Fiesta</h1>
         </div>
-      </div>
 
-      <!-- Menú derecho -->
-      <div class="col-6 col-md-3 text-end mb-3">
-        <div class="dropdown">
-          <button class="btn btn-light dropdown-toggle w-100" type="button" data-bs-toggle="dropdown">
-            Categorias
-          </button>
-          <ul class="dropdown-menu w-100 text-center">
-            <li><a class="dropdown-item" href="../HTML/animadores.html">Animadores</a></li>
-            <li><a class="dropdown-item" href="../HTML/catering.html">Catering</a></li>
-            <li><a class="dropdown-item" href="../HTML/decoracion.html">Decoración</a></li>
-            <li><a class="dropdown-item" href="../HTML/fotografo.html">Fotógrafo</a></li>
-            <li><a class="dropdown-item" href="../HTML/dj.html">Dj</a></li>
-            <li><a class="dropdown-item" href="../HTML/ambientes.html">Ambientes</a></li>
-          </ul>
+        <!-- Icono centrado -->
+        <div class="col-4 d-flex justify-content-center">
+          <img src="../../IMG/Icono_header_ATF.png" class="img-fluid" style="max-width: 100px;" alt="Icono">
+        </div>
+
+        <!-- Menú y perfil a la derecha -->
+        <div class="col-4 d-flex justify-content-end align-items-center gap-2">
+          <div class="dropdown">
+            <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
+              Menú
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end text-center">
+              <li><a class="dropdown-item" href="../../index.php">Inicio</a></li>
+              <li><a class="dropdown-item" href="../../HTML/eventos/carrito/carrito.html">Carrito</a></li>
+              <li><a class="dropdown-item" href="../../PHP/trabajador/formulario_trabajador.php">Registrate como trabajador</a></li>
+            </ul>
+          </div>
+
+          <!-- Botón circular de perfil -->
+          <div class="dropdown d-flex">
+            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
+            <a href="./HTML/cliente/perfil_cliente.html" class="d-inline-block rounded-circle overflow-hidden border border-light" style="width: 45px; height: 45px;">
+              <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="img-fluid" alt="Perfil">
+          </a>  
+        </button>
+        <?php
+        if (isset($_SESSION['id'])) {
+        ?>  <p class="usuario ">Hola, <?php echo $_SESSION['nombre']; ?></p><?php
+}
+?>
+            <ul class="dropdown-menu dropdown-menu-end text-center">
+              <li><a class="dropdown-item" href="../../HTML/cliente/perfil_cliente.html">Ver perfil</a></li>
+              <li><a class="dropdown-item" href="../../HTML/cliente/login.html">Iniciar sesion</a></li>
+              <li><a class="dropdown-item text-danger" href="#">Cerrar sesion</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
+  </header>
 
     <!-- Buscador centrado -->
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mt-4">
       <div class="col-12 col-md-8">
         <input type="text" id="buscador" class="form-control" placeholder="Buscar animadores...">
       </div>
@@ -71,19 +82,19 @@
     <div class="row" id="lista-animadores">
       <!-- Paquetes de animadores -->
       <div class="col-md-4 mb-4 animador" data-nombre="Animador Alegría">
-        <img src="../IMG/dj/dj.png" class="animador-img" alt="Animador Alegría" />
+        <img src="../../IMG/dj/dj.png" class="animador-img" alt="Animador Alegría" />
         <h5 class="mt-2">Animador Alegría</h5>
         <p>Especializado en fiestas infantiles y shows en vivo.</p>
         <button class="btn btn-success w-100" onclick="agregarCarrito('Animador Alegría')">Agregar al carrito</button>
       </div>
       <div class="col-md-4 mb-4 animador" data-nombre="Bailarín Bruno">
-        <img src="../IMG/dj/dj1200x800.jpg" class="animador-img" alt="Bailarín Bruno" />
+        <img src="../../IMG/dj/dj1200x800.jpg" class="animador-img" alt="Bailarín Bruno" />
         <h5 class="mt-2">Bailarín Bruno</h5>
         <p>Shows coreográficos, breakdance y animación urbana.</p>
         <button class="btn btn-success w-100" onclick="agregarCarrito('Bailarín Bruno')">Agregar al carrito</button>
       </div>
       <div class="col-md-4 mb-4 animador" data-nombre="Clown Carlitos">
-        <img src="../IMG/dj/djs.png" class="animador-img" alt="Clown Carlitos" />
+        <img src="../../IMG/dj/djs.png" class="animador-img" alt="Clown Carlitos" />
         <h5 class="mt-2">Clown Carlitos</h5>
         <p>Payaso profesional para niños, malabares y globoflexia.</p>
         <button class="btn btn-success w-100" onclick="agregarCarrito('Clown Carlitos')">Agregar al carrito</button>
@@ -108,8 +119,8 @@
       </div>
       <div class="col-md-4 mb-3">
         <h5>Legal</h5>
-        <a href="../HTML/politica_privacidad.html" class="text-white d-block">Política de privacidad</a>
-        <a href="../HTML/terminos_condiciones.html" class="text-white d-block">Términos y condiciones</a>
+        <a href="../../HTML/politica_privacidad/politica_privacidad.html" class="text-white d-block">Política de privacidad</a>
+        <a href="../../HTML/politica_privacidad/terminos_condiciones.html" class="text-white d-block">Términos y condiciones</a>
       </div>
     </div>
     <hr class="border-light" />
