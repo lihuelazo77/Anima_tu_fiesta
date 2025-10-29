@@ -26,8 +26,9 @@ CREATE TABLE usuario (
 -- Crear tabla 'trabajador'
 CREATE TABLE trabajador (
     id_usuario INT NOT NULL,
-    oficio VARCHAR(20) NOT NULL,
     nombre_artistico VARCHAR(20) NOT NULL,
+    oficio VARCHAR(20) NOT NULL,
+    ciudad VARCHAR(20) NOT NULL,
     PRIMARY KEY (oficio, id_usuario)
 );
 

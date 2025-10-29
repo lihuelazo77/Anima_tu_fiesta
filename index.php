@@ -76,7 +76,7 @@ session_start();
             <ul class="dropdown-menu dropdown-menu-end text-center">
               <li><a class="dropdown-item" href="./index.php">Inicio</a></li>
               <li><a class="dropdown-item" href="./HTML/eventos/carrito/carrito.html">Carrito</a></li>
-              <li><a class="dropdown-item" href="./HTML/eventos/carrito/carrito.html">Registrate como trabajador</a></li>
+              <li><a class="dropdown-item" href="./PHP/trabajador/formulario_trabajador.php">Registrate como trabajador</a></li>
             </ul>
           </div>
 
@@ -93,16 +93,11 @@ session_start();
 }
 ?>
             <ul class="dropdown-menu dropdown-menu-end text-center">
-              <li><a class="dropdown-item" href="./index.php">Ver perfil</a></li>
-              <li><a class="dropdown-item" href="./HTML/eventos/carrito/carrito.html">Iniciar sesion</a></li>
+              <li><a class="dropdown-item" href="./HTML/cliente/perfil_cliente.html">Ver perfil</a></li>
+              <li><a class="dropdown-item" href="./HTML/cliente/login.html">Iniciar sesion</a></li>
               <li><a class="dropdown-item text-danger" href="./HTML/eventos/carrito/carrito.html">Cerrar sesion</a></li>
-
             </ul>
           </div>
-  </img>
-          
-          
-
         </div>
       </div>
     </div>

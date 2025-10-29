@@ -176,9 +176,9 @@ function validar_contrasena($contrasena,$error){
     if(preg_match("/[a-z]/",$contrasena) <1){
         $error=$error. "La contraseña debe tener almenos 1 minuscula.<br>";
     }
-    if(preg_match("/[!@·$%&*?.+_:;=-]/",$contrasena) <1){
-        $error=$error. "La contraseña debe tener almenos 1 caracter especial.<br>";
-    }
+    // if(preg_match("/[!@·$%&*?.+_:;=-]/",$contrasena) <1){
+    //     $error=$error. "La contraseña debe tener almenos 1 caracter especial.<br>";
+    // }
     return $error;
 }
 function validar_confirmar($confirmar,$contrasena,$error){

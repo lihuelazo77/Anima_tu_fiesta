@@ -89,26 +89,52 @@
 </head>
 <body class="d-flex flex-column">
 
-  <!-- Header con título, menú y botón de perfil -->
-  <header class="bg-primary text-white py-3">
-    <div class="container header-flex">
-      <h1 class="mb-0">Anima Tu Fiesta</h1>
-
-      <div class="menu-container">
-        <div class="dropdown">
-          <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
-            Menu
-          </button>
-          <ul class="dropdown-menu text-center">
-            <li><a class="dropdown-item" href="index_trabajador.html">Inicio</a></li>
-            <li><a class="dropdown-item" href="carrito.html">Carrito</a></li>
-          </ul>
+<!-- Header con icono en el medio y texto a la izquierda -->
+  <header class="bg-primary text-white py-2 sticky-top">
+    <div class="container">
+      <div class="row align-items-center text-center text-md-start">
+        <!-- Título a la izquierda -->
+        <div class="col-4 d-flex justify-content-start align-items-center">
+          <h1 class="mb-0 fw-bold">Anima Tu Fiesta</h1>
         </div>
 
-        <!-- Botón circular de perfil -->
-        <a href="login.html" class="perfil-btn" title="Perfil">
-          <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Perfil">
-        </a>
+        <!-- Icono centrado -->
+        <div class="col-4 d-flex justify-content-center">
+          <img src="../../IMG/Icono_header_ATF.png" class="img-fluid" style="max-width: 100px;" alt="Icono">
+        </div>
+
+        <!-- Menú y perfil a la derecha -->
+        <div class="col-4 d-flex justify-content-end align-items-center gap-2">
+          <div class="dropdown">
+            <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
+              Menú
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end text-center">
+              <li><a class="dropdown-item" href="../../index.php">Inicio</a></li>
+              <li><a class="dropdown-item" href="../../HTML/eventos/carrito/carrito.html">Carrito</a></li>
+              <li><a class="dropdown-item" href="../../PHP/trabajador/formulario_trabajador.php">Registrate como trabajador</a></li>
+            </ul>
+          </div>
+
+          <!-- Botón circular de perfil -->
+          <div class="dropdown d-flex">
+            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
+            <a href="./HTML/cliente/perfil_cliente.html" class="d-inline-block rounded-circle overflow-hidden border border-light" style="width: 45px; height: 45px;">
+              <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="img-fluid" alt="Perfil">
+          </a>  
+        </button>
+        <?php
+        if (isset($_SESSION['id'])) {
+        ?>  <p class="usuario ">Hola, <?php echo $_SESSION['nombre']; ?></p><?php
+}
+?>
+            <ul class="dropdown-menu dropdown-menu-end text-center">
+              <li><a class="dropdown-item" href="../../HTML/cliente/perfil_cliente.html">Ver perfil</a></li>
+              <li><a class="dropdown-item" href="../../HTML/cliente/login.html">Iniciar sesion</a></li>
+              <li><a class="dropdown-item text-danger" href="#">Cerrar sesion</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </header>
@@ -128,7 +154,7 @@
         </div>
         <button type="submit" name="enviar" class="btn btn-login w-100 mt-3">Entrar</button> <!-- Botón -->
       </form>
-      <p class="mt-4">¿No tienes cuenta? <a href="./registro_cliente.html">Regístrate</a></p>
+      <p class="mt-4">¿No tienes cuenta? <a href="../../HTML/cliente/registro_cliente.html">Regístrate</a></p>
     </div>
   </main>
 
@@ -148,8 +174,8 @@
         </div>
         <div class="col-md-4 mb-3">
           <h5>Legal</h5>
-          <a href="politica_privacidad.html"  class="text-white d-block">Política de privacidad</a>
-          <a href="terminos_condiciones.html" class="text-white d-block">Términos y condiciones</a>
+          <a href="../../HTML/politica_privacidad/politica_privacidad.html"  class="text-white d-block">Política de privacidad</a>
+          <a href="../../HTML/politica_privacidad/terminos_condiciones.html" class="text-white d-block">Términos y condiciones</a>
         </div>
       </div>
       <hr class="border-light" />

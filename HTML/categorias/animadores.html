@@ -23,19 +23,49 @@
 </head>
 <body class="d-flex flex-column min-vh-100">
 
-  <!-- Header -->
-  <header class="bg-primary text-white text-center py-4">
+ <!-- Header con icono en el medio y texto a la izquierda -->
+  <header class="bg-primary text-white py-2 sticky-top">
     <div class="container">
-      <h1 class="mb-3">Anima Tu Fiesta</h1>
-      <div class="row justify-content-center">
-        <div class="col-md-4 mb-2">
+      <div class="row align-items-center text-center text-md-start">
+        <!-- Título a la izquierda -->
+        <div class="col-4 d-flex justify-content-start align-items-center">
+          <h1 class="mb-0 fw-bold">Anima Tu Fiesta</h1>
+        </div>
+
+        <!-- Icono centrado -->
+        <div class="col-4 d-flex justify-content-center">
+          <img src="../../IMG/Icono_header_ATF.png" class="img-fluid" style="max-width: 100px;" alt="Icono">
+        </div>
+
+        <!-- Menú y perfil a la derecha -->
+        <div class="col-4 d-flex justify-content-end align-items-center gap-2">
           <div class="dropdown">
-            <button class="btn btn-light dropdown-toggle w-100" type="button" data-bs-toggle="dropdown">
-              Menu
+            <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
+              Menú
             </button>
-            <ul class="dropdown-menu w-100 text-center">
-              <li><a class="dropdown-item" href="../index.php">Inicio</a></li>
-              <li><a class="dropdown-item" href="../HTML/login.html">Login</a></li>
+            <ul class="dropdown-menu dropdown-menu-end text-center">
+              <li><a class="dropdown-item" href="../../index.php">Inicio</a></li>
+              <li><a class="dropdown-item" href="../../HTML/eventos/carrito/carrito.html">Carrito</a></li>
+              <li><a class="dropdown-item" href="../../PHP/trabajador/formulario_trabajador.php">Registrate como trabajador</a></li>
+            </ul>
+          </div>
+
+          <!-- Botón circular de perfil -->
+          <div class="dropdown d-flex">
+            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
+            <a href="./HTML/cliente/perfil_cliente.html" class="d-inline-block rounded-circle overflow-hidden border border-light" style="width: 45px; height: 45px;">
+              <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="img-fluid" alt="Perfil">
+          </a>  
+        </button>
+        <?php
+        if (isset($_SESSION['id'])) {
+        ?>  <p class="usuario ">Hola, <?php echo $_SESSION['nombre']; ?></p><?php
+}
+?>
+            <ul class="dropdown-menu dropdown-menu-end text-center">
+              <li><a class="dropdown-item" href="../../HTML/cliente/perfil_cliente.html">Ver perfil</a></li>
+              <li><a class="dropdown-item" href="../../HTML/cliente/login.html">Iniciar sesion</a></li>
+              <li><a class="dropdown-item text-danger" href="#">Cerrar sesion</a></li>
             </ul>
           </div>
         </div>
@@ -55,7 +85,7 @@
         <!-- Animador Alegría -->
         <div class="col-md-4 mb-4">
           <div class="card animador-card p-3 h-100 animador" data-nombre="Animador Alegría">
-            <img src="../IMG/animadores.jpg" class="animador-img mb-3" alt="Animador Alegría" />
+            <img src="../../IMG/animadores.jpg" class="animador-img mb-3" alt="Animador Alegría" />
             <h5 class="fw-bold text-primary">Animador Alegría</h5>
             <ul class="list-unstyled mb-3">
               <li><strong>Edad:</strong> 28 años</li>
@@ -76,7 +106,7 @@
         <!-- Bailarín Bruno -->
         <div class="col-md-4 mb-4">
           <div class="card animador-card p-3 h-100 animador" data-nombre="Bailarín Bruno">
-            <img src="../IMG/catering.jpg" class="animador-img mb-3" alt="Bailarín Bruno" />
+            <img src="../../IMG/catering.jpg" class="animador-img mb-3" alt="Bailarín Bruno" />
             <h5 class="fw-bold text-primary">Bailarín Bruno</h5>
             <ul class="list-unstyled mb-3">
               <li><strong>Edad:</strong> 25 años</li>
@@ -97,7 +127,7 @@
         <!-- Clown Carlitos -->
         <div class="col-md-4 mb-4">
           <div class="card animador-card p-3 h-100 animador" data-nombre="Clown Carlitos">
-            <img src="../IMG/dj.png" class="animador-img mb-3" alt="Clown Carlitos" />
+            <img src="../../IMG/dj.png" class="animador-img mb-3" alt="Clown Carlitos" />
             <h5 class="fw-bold text-primary">Clown Carlitos</h5>
             <ul class="list-unstyled mb-3">
               <li><strong>Edad:</strong> 32 años</li>
@@ -134,8 +164,8 @@
         </div>
         <div class="col-md-4 mb-3">
           <h5>Legal</h5>
-          <a href="./HTML/politica_privacidad.html" class="text-white d-block">Política de privacidad</a>
-          <a href="./HTML/terminos_condiciones.html" class="text-white d-block">Términos y condiciones</a>
+          <a href="../../HTML/politica_privacidad/politica_privacidad.html" class="text-white d-block">Política de privacidad</a>
+          <a href="../../HTML/politica_privacidad/terminos_condiciones.html" class="text-white d-block">Términos y condiciones</a>
         </div>
       </div>
       <hr class="border-light" />
@@ -156,7 +186,7 @@
           localStorage.setItem('carrito', JSON.stringify(carrito));
         }
 
-        window.location.href = 'carrito.html';
+        window.location.href = '../eventos/carrito/carrito.html';
       });
     });
   </script>
