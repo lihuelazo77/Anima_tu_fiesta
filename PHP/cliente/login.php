@@ -11,7 +11,7 @@ session_start();
 	$contar = mysqli_num_rows($query);
 	if ($contar != 0) {
 		while($row=mysqli_fetch_array($query)) {
-			echo $row;
+
 			if($nombre == $row['nombre'] && $contrasena == $row['contrasena']) 
 			
 			{
