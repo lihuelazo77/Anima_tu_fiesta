@@ -7,7 +7,7 @@ $apellido = trim($_POST["apellido"]);
 $telefono = trim($_POST["telefono"]);
 $correo = trim($_POST["correo"]);
 $domicilio = trim($_POST["domicilio"]);
-$contrasena = trim($_POST["contrasena"]);
+$contrasena = trim($_POST["contrasena"]); 
 $confirmar = trim($_POST["confirmar"]);
 
 

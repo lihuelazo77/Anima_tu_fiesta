@@ -5,7 +5,7 @@ session_start();
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8">  
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Anima Tu Fiesta</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -27,7 +27,7 @@ session_start();
     .galeria-img {
       width: 100%;
       height: 300px;
-      object-fit: cover;
+      object-fit: cover;  
       opacity: 0.7;
       transition: opacity 0.3s ease;
     }
@@ -95,7 +95,7 @@ session_start();
             <ul class="dropdown-menu dropdown-menu-end text-center">
               <li><a class="dropdown-item" href="./HTML/cliente/perfil_cliente.html">Ver perfil</a></li>
               <li><a class="dropdown-item" href="./HTML/cliente/login.html">Iniciar sesion</a></li>
-              <li><a class="dropdown-item text-danger" href="./HTML/eventos/carrito/carrito.html">Cerrar sesion</a></li>
+              <li><a class="dropdown-item text-danger" href="./PHP/cliente/logout.php">Cerrar sesion</a></li>
             </ul>
           </div>
         </div>

@@ -3,8 +3,8 @@ session_start();
 include('../conexion/conexion.php');
 if (isset($_POST['enviar'])) {
   $id=$_SESSION["id"];
-  $nombre_artistico=$_POST["nombre_artistico"];
   $oficio=$_POST["oficio"];
+  $nombre_artistico=$_POST["nombre_artistico"];
   $ciudad=$_POST["ciudad"];
     $sql = "INSERT INTO trabajador VALUES ('$id', '$nombre_artistico', '$oficio', '$ciudad')";
     mysqli_query($conexion, $sql);
