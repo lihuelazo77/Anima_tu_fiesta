@@ -1,6 +1,9 @@
 <?php
 session_start();
 include('../conexion/conexion.php');
+
+
+
 if (isset($_POST['enviar'])) {
   $id=$_SESSION["id"];
   $oficio=$_POST["oficio"];
@@ -9,7 +12,6 @@ if (isset($_POST['enviar'])) {
     $sql = "INSERT INTO trabajador VALUES ('$id', '$nombre_artistico', '$oficio', '$ciudad')";
     mysqli_query($conexion, $sql);
     mysqli_close($conexion);
-    echo "PIÑATAAAAAA";
 }
 ?>
 
@@ -158,7 +160,7 @@ if (isset($_POST['enviar'])) {
   <main class="flex-grow-1">
     <div class="login-container text-center">
       <h2 class="login-title">Registrarse como trabajador</h2>
-      <form action="../../PHP/cliente/login.php" method="POST"> <!-- Envía a PHP -->
+      <form action="" method="POST"> <!-- Envía a PHP -->
         <div class="campo mb-3 text-start">
           <label for="nombre_artistico" class="form-label">Nombre artistico</label>
           <input type="text" class="form-control" id="nombre_artistico" name="nombre_artistico" required /> <!-- Campo correo -->

@@ -1,4 +1,3 @@
-<script>
 document.addEventListener("DOMContentLoaded", function() {
     // Selecciona todos los divs con clase "campo"
     let campos = document.querySelectorAll(".campo");
@@ -16,4 +15,3 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
-</script>

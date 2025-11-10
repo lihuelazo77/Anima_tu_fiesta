@@ -1,5 +1,5 @@
 <?php
-include ("conexion.php");
+include ('../conexion/conexion.php'); 
 
 $id=$_REQUEST["id"];
 $sql="DELETE from usuario where id=$id";

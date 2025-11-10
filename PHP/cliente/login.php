@@ -1,6 +1,6 @@
 <?php
 include('../conexion/conexion.php');
-
+	
 if($_POST) {
 session_start();
 	$nombre = $_POST['nombre'];
@@ -16,10 +16,19 @@ session_start();
 			
 			{
 			
+				$_SESSION['id'] = $row['id'];
+				
 				$_SESSION['nombre'] = $nombre;
 				
-				$_SESSION['id'] = $row['id'];
-			
+				$_SESSION['apellido'] = $row['apellido'];
+				
+				$_SESSION['telefono'] = $row['telefono'];
+				
+				$_SESSION['correo'] = $row['correo'];
+				
+				$_SESSION['domicilio'] = $row['domicilio'];
+				
+
 				echo "<script>
 				window.location.href = '../../index.php';
 			</script>";
