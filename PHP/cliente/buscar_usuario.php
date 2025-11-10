@@ -1,5 +1,5 @@
 <?php
-include ("conexion.php");
+include ('../conexion/conexion.php'); 
 session_start();
 $id = $_POST['id']; 
 
@@ -18,8 +18,9 @@ if ($registro = mysqli_fetch_array($registros)) {
         <br>Nombre: <input type="text" name="nuevo_nombre" placeholder="<?php echo $registro[1]; ?>">
         <br>Apellido: <input type="text" name="nuevo_apellido" placeholder="<?php echo $registro[2]; ?>">
         <br>Telefono: <input type="text" name="nuevo_telefono" placeholder="<?php echo $registro[3]; ?>">
-        <br>Correo: <input type="text" name="nuevo_email" placeholder="<?php echo $registro[3]; ?>">
+        <br>Correo: <input type="text" name="nuevo_correo" placeholder="<?php echo $registro[3]; ?>">
         <br>Domicilio: <input type="text" name="nuevo_domicilio" placeholder="<?php echo $registro[3]; ?>">
+        <br>Contraseña: <input type="text" name="nuevo_contrasena" placeholder="<?php echo $registro[3]; ?>">
         <br><input type="submit" name="enviar" value="Modificar">
     </form>
     <?php

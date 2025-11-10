@@ -19,9 +19,10 @@
             <td>Telefono</td>
             <td>Email</td>
             <td>Domicilio</td>
+            <td>Contraseña</td>
         </tr>
         <?php
-                include('conexion.php');
+                include('../conexion/conexion.php');
          $sql="SELECT * FROM usuario";
          $registros=mysqli_query($conexion,$sql);
          while($array=mysqli_fetch_array($registros)){
@@ -33,5 +34,6 @@
             <td><?php echo $array['telefono']?></td>
             <td><?php echo $array['correo']?></td>
             <td><?php echo $array['domicilio']?></td>
+            <td><?php echo $array['contrasena']?></td>
         </tr>
          <?php } ?>

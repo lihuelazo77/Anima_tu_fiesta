@@ -8,7 +8,7 @@ $telefono = trim($_POST["telefono"]);
 $correo = trim($_POST["correo"]);
 $domicilio = trim($_POST["domicilio"]);
 $contrasena = trim($_POST["contrasena"]); 
-$confirmar = trim($_POST["confirmar"]);
+$confirmar = trim($_POST["confirmar"]); 
 
 
 $error = validar_nombre($nombre, $error);
